@@ -1,17 +1,28 @@
 import styled from 'styled-components'
 
 function Login() {
+
+const loginFunction = (e) => {
+    e.preventDefault();
+
+    console.log("Login button pressed")
+}
+
     return (
         <Container>
-            <Form>
-                <form>
-                    <input></input>
-                    <input></input>
-                    <input></input>
-                    <input></input>
-                    <input></input>
+            <LoginContainer>
+                <form onSubmit={loginFunction}>
+                    <UserID>
+                        <input/>
+                    </UserID>
+                    <Password>
+                        <input/>
+                    </Password>
+                    <LoginButton>
+                        <button type="submit"> Login </button>
+                    </LoginButton>
                 </form>
-            </Form>
+            </LoginContainer>
                 
         </Container>
     )
@@ -24,7 +35,7 @@ const Container = styled.div`
     padding: 10px;
     
 `
-const Form = styled.div`
+const LoginContainer = styled.div`
     border: 1px solid black;
     margin: 50px 10px 0 70%;
     display: flex;
@@ -36,4 +47,13 @@ const Form = styled.div`
         display: flex;
         flex-direction: column;
     }
+`
+const UserID = styled.div`
+
+`
+const Password = styled.div`
+
+`
+const LoginButton = styled.div`
+
 `
