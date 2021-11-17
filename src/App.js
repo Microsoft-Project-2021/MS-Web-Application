@@ -8,6 +8,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';//do n
 
 // do elements(components) imports here
 import Home from './components/Home';
+import Login from './components/Login';
 
 
 
@@ -17,7 +18,8 @@ function App() {
       <Router>
         <Routes>
           {/* in the new react router dom, you need to use the element={<component_name/>} */}
-          <Route exact path="/" element={<Home/>} />
+          <Route path="/" element={<Home/>} />
+          <Route path="/login" element={<Login/>} />
         </Routes>
       </Router>
     </Container>       
