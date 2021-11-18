@@ -15,6 +15,8 @@ const loginFunction = (e) => {
 
     return (
         <Container>
+            {/* this is how you use images that are in the public folder */}
+            {/* <img src="images/MS_login_UI.jpeg" alt="" /> */}
             <LoginContainer>
                 <h3>Log In</h3>
                 <form onSubmit={loginFunction}>
