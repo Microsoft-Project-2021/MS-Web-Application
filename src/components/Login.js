@@ -1,9 +1,9 @@
 import styled from 'styled-components'
-import {Link, useNavigate} from 'react-router-dom'
+import {Link, useNavigate} from 'react-router-dom'//useNavigate helps in navigating to another url/page
 
 function Login() {
 
-    const navigate = useNavigate()
+const navigate = useNavigate()
 
 const loginFunction = (e) => {
     e.preventDefault();
@@ -15,6 +15,8 @@ const loginFunction = (e) => {
 
     return (
         <Container>
+            {/* this is how you use images that are in the public folder */}
+            {/* <img src="images/MS_login_UI.jpeg" alt="" /> */}
             <LoginContainer>
                 <h3>Log In</h3>
                 <form onSubmit={loginFunction}>
@@ -44,19 +46,16 @@ const Container = styled.div`
     
 `
 const LoginContainer = styled.div`
-    border: 1px solid black;
+    /* border: 1px solid black; */
+    padding: 20px 0 0 0;
     margin: 50px 10px 0 70%;
-    /* display: flex; */
     justify-content: center;
-    /* align-items: center; */
-    
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;   
 
     h3{
         text-align: center;
-        margin-top: 20px;
+        /* margin-top: 50px; */
         /* border: 1px solid black; */
-
     }
 
     form{
@@ -71,8 +70,6 @@ const LoginContainer = styled.div`
         input{
             width: 70%;
         }
-
-
     }
 `
 const UserID = styled.div`
@@ -80,18 +77,19 @@ const UserID = styled.div`
     justify-content: space-between;
 `
 const Password = styled.div`
+    margin: 15px 0 0 0;
     display: flex;
     justify-content: space-between;
 `
 const LoginButton = styled.div`
     /* border: 1px solid black; */
-    margin-top: 15px;
+    /* margin-top: 15px; */
     display: flex;
     justify-content: right;
     width: 100%;
 
     button{
         width: 50%;
-        margin-right: 11%;
+        margin: 15px 11%;
     }
 `
