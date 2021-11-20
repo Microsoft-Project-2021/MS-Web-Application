@@ -21,11 +21,9 @@ const loginFunction = (e) => {
                 <h3>Log In</h3>
                 <form onSubmit={loginFunction}>
                     <UserID>
-                        {/* <label>User ID:</label> */}
                         <input placeholder="Username/ID"/>
                     </UserID>
                     <Password>
-                        {/* <label>Password:</label> */}
                         <input placeholder="Password"/>
                     </Password>
                     <LoginButton>
@@ -55,7 +53,6 @@ const LoginContainer = styled.div`
     /* border: 1px solid black; */
     background-color: white;
     height: 600px;
-    /* width: 400px; */
     padding: 20px 0 0 0;
     border-radius: 15px;
     margin: 50px 20px 0 70%;
@@ -65,8 +62,6 @@ const LoginContainer = styled.div`
     h3{
         text-align: center;
         font-size: 44px;
-        /* margin-top: 50px; */
-        /* border: 1px solid black; */
     }
 
     form{
@@ -77,7 +72,6 @@ const LoginContainer = styled.div`
         display: flex;
         flex-wrap: wrap;
         flex-direction: column;
-        /* justify-content: center; */
 
         input{
             width: 100%;
