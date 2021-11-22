@@ -18,7 +18,7 @@ const loginFunction = (e) => {
             {/* this is how you use images that are in the public folder */}
             {/* <img src="images/MS_login_UI.jpeg" alt="" /> */}
             <LoginContainer>
-                <h3>Log In</h3>
+                <h1>Log In</h1>
                 <form onSubmit={loginFunction}>
                     <UserID>
                         {/* <label>User ID:</label> */}
@@ -62,9 +62,11 @@ const LoginContainer = styled.div`
     justify-content: center;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;   
 
-    h3{
+    h1{
+        font-family:Calibri;
+        font-size: 60px;
+        font-weight:500;
         text-align: center;
-        font-size: 44px;
         /* margin-top: 50px; */
         /* border: 1px solid black; */
     }
@@ -92,27 +94,31 @@ const UserID = styled.div`
     /* border: 1px solid black;  */
     display: flex;
     justify-content: center;
+    font-family: "Segoe UI"
 `
 const Password = styled.div`
     margin: 75px 0 0 0;
     display: flex;
     justify-content: center;
+    font-family: "Segoe UI"
 `
 const LoginButton = styled.div`
     /* border: 1px solid black; */
-    margin: 100px 0 0 0;
+    margin: 70px 0 0 0;
     display: flex;
     justify-content: center;
     width: 100%;
-
+    
     button{
         width: 50%;
-        font-size: 20px;
+        font-family: Calibri;
+        font-size: 25px;
         margin: 0px 11% 0 11%;
         padding: 15px;
         color: white;
-        background-color: lightskyblue;
-        border-radius: 30px;
+        background-color: #1E90FF;
+        border-radius: 50px;
+        border:none;
         cursor: pointer;
     }
 `
@@ -123,7 +129,8 @@ const ForgotPassword = styled.div`
     .link{
         text-decoration: none;
         color: inherit;
+        font-family: "Segoe UI";
         font-size: 15px;
-        margin-top: 7px;
+        margin-top: 15px;
     }    
 `
