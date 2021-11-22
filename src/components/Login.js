@@ -45,7 +45,8 @@ export default Login
 
 const Container = styled.div`
     /* border: 1px solid black; */
-    height: 97vh;
+    height: auto;
+    width:  auto;
     padding: 10px;
     background-image: url("images/bg_img.svg");
     background-repeat: no-repeat;
