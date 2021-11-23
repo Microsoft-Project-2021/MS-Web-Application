@@ -1,4 +1,5 @@
 //do imports of packages here
+import React from 'react';
 //styled-components allow us to create custom tags and style them within the js file
 import styled from 'styled-components' // do npm i styled-components to get this package
 // react-router-dom used for routing

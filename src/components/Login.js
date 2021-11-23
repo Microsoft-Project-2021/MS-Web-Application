@@ -1,3 +1,4 @@
+import React from 'react';
 import styled from 'styled-components'
 import {Link, useNavigate} from 'react-router-dom'//useNavigate helps in navigating to another url/page
 
