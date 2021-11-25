@@ -45,9 +45,9 @@ const Container = styled.div`
     /* border: 1px solid black; */
     height: 97vh;
     padding: 10px;
-    background-image: url("images/ms_bg.jpeg");
+    background-image: url("images/Background-Image.svg");
     background-repeat: no-repeat;
-    background-size: cover;    
+    background-size: cover;     
 `
 const LoginContainer = styled.div`
     /* border: 1px solid black; */
