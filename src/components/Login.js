@@ -64,7 +64,7 @@ const LoginContainer = styled.div`
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;   
 
     h1{
-        font-family:Calibri;
+        font-family: Calibri;
         font-size: 60px;
         font-weight:500;
         text-align: center;
