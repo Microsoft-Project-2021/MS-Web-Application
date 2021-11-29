@@ -7,6 +7,8 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';//do n
 // do elements(components) imports here
 import Home from './components/Home';
 import Login from './components/Login';
+import PasswordReset from './components/PasswordReset';
+import ChangePassword from './components/ChangePassword';
 
 
 
@@ -18,6 +20,8 @@ function App() {
           {/* in the new react router dom, you need to use the element={<component_name/>} */}
           <Route path="/" element={<Home/>} />
           <Route path="/login" element={<Login/>} />
+          <Route path="/passwordreset" element={<PasswordReset/>} />
+          <Route path="/changepassword" element={<ChangePassword/>} />
         </Routes>
       </Router>
     </Container>       

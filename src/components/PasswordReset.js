@@ -1,16 +1,16 @@
 import styled from 'styled-components'
 import {Link, useNavigate} from 'react-router-dom'//useNavigate helps in navigating to another url/page
 
-function Login() {
+function PasswordReset() {
 
 const navigate = useNavigate()
 
-const loginFunction = (e) => {
+const passwordResetFunction = (e) => {
     e.preventDefault();
 
-    console.log("Login button pressed")
+    console.log("Pasword Reset Submit button pressed")
 
-    navigate('/')
+    navigate('/ChangePassword')
 }
 
     return (
@@ -18,20 +18,18 @@ const loginFunction = (e) => {
             {/* this is how you use images that are in the public folder */}
             {/* <img src="images/MS_login_UI.jpeg" alt="" /> */}
             <LoginContainer>
-                <h1>Log In</h1>
-                <form onSubmit={loginFunction}>
+                <h1>Reset Password</h1>
+                <form onSubmit={passwordResetFunction}>
                     <UserID>
+                        {/* <label>User ID:</label> */}
                         <input placeholder="Username/ID"/>
                     </UserID>
-                    <Password>
-                        <input placeholder="Password"/>
-                    </Password>
                     <LoginButton>
-                        <button type="submit"> Login </button>
+                        <button type="submit"> Submit </button>
                     </LoginButton>
-                    <ForgotPassword>
-                        <Link class="link" to="/PasswordReset">Forgot Password?</Link>
-                    </ForgotPassword>
+                    <BackToLogin>
+                        <Link class="link" to="/Login">Back To Login</Link>
+                    </BackToLogin>
                 </form>
             </LoginContainer>
                 
@@ -39,7 +37,7 @@ const loginFunction = (e) => {
     )
 }
 
-export default Login
+export default PasswordReset
 
 const Container = styled.div`
     /* border: 1px solid black; */
@@ -48,12 +46,13 @@ const Container = styled.div`
     padding: 10px;
     background-image: url("images/bg_img.svg");
     background-repeat: no-repeat;
-    background-size: cover;     
+    background-size: cover;    
 `
 const LoginContainer = styled.div`
     /* border: 1px solid black; */
     background-color: white;
     height: 600px;
+    /* width: 400px; */
     padding: 20px 0 0 0;
     border-radius: 15px;
     margin: 50px 20px 0 70%;
@@ -61,21 +60,23 @@ const LoginContainer = styled.div`
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;   
 
     h1{
-        font-family: Calibri;
+        font-family:Calibri;
         font-size: 60px;
         font-weight:500;
         text-align: center;
-        font-size: 44px;
-    }
         /* margin-top: 50px; */
+        /* border: 1px solid black; */
+    }
 
     form{
+        /* border: 1px solid black; */
         padding: 30px 25px;
         margin: 70px 20px;
         height: 400px;
         display: flex;
         flex-wrap: wrap;
         flex-direction: column;
+        /* justify-content: center; */
 
         input{
             width: 100%;
@@ -88,12 +89,6 @@ const LoginContainer = styled.div`
 `
 const UserID = styled.div`
     /* border: 1px solid black;  */
-    display: flex;
-    justify-content: center;
-    font-family: "Segoe UI"
-`
-const Password = styled.div`
-    margin: 75px 0 0 0;
     display: flex;
     justify-content: center;
     font-family: "Segoe UI"
@@ -118,7 +113,7 @@ const LoginButton = styled.div`
         cursor: pointer;
     }
 `
-const ForgotPassword = styled.div`
+const BackToLogin = styled.div`
     display: flex;
     justify-content: center;
 
