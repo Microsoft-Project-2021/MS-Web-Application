@@ -2,17 +2,19 @@ import React from 'react';
 import styled from 'styled-components'
 import {Link, useNavigate} from 'react-router-dom'//useNavigate helps in navigating to another url/page
 
-function Login() {
+function Login(props) {
 
-const navigate = useNavigate()
+    const {email,setEmail,password,setPassword, handleLogin,handleSignUp,hasAccount,setHasAccount,emailError,passwordError}= props;
 
-const loginFunction = (e) => {
-    e.preventDefault();
+    const navigate = useNavigate()
 
-    console.log("Login button pressed")
+    const loginFunction = (e) => {
+        e.preventDefault();
 
-    navigate('/')
-}
+        console.log("Login button pressed")
+
+        navigate('/')
+    }
 
     return (
         <Container>
@@ -23,7 +25,7 @@ const loginFunction = (e) => {
                 <form onSubmit={loginFunction}>
                     <UserID>
                         {/* <label>User ID:</label> */}
-                        <input placeholder="Username/ID"/>
+                        <input type="text" autoFocus required value={email} onChange={(e)=> setEmail(e.target.value)} placeholder="Username/ID"/>
                     </UserID>
                     <Password>
                         {/* <label>Password:</label> */}
