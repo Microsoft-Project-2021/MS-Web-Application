@@ -4,7 +4,7 @@ import {Link, useNavigate} from 'react-router-dom'//useNavigate helps in navigat
 
 function Login(props) {
 
-    const {email,setEmail,password,setPassword, handleLogin,handleSignUp,hasAccount,setHasAccount,emailError,passwordError}= props;
+    const {loginEmail,setLoginEmail,loginPassword, setLoginPassword, login}= props;
 
     const navigate = useNavigate()
 
@@ -25,14 +25,17 @@ function Login(props) {
                 <form onSubmit={loginFunction}>
                     <UserID>
                         {/* <label>User ID:</label> */}
-                        <input type="text" autoFocus required value={email} onChange={(e)=> setEmail(e.target.value)} placeholder="Username/ID"/>
+                        <input type="text" autoFocus required value={loginEmail} onChange={(e)=> setLoginEmail(e.target.value)} placeholder="Username/ID"/>    
                     </UserID>
                     <Password>
                         {/* <label>Password:</label> */}
-                        <input placeholder="Password"/>
+                        <input input type="password" required value={loginPassword} onChange={(e)=> setLoginPassword(e.target.value)} placeholder="Password"/>
                     </Password>
+                    <ErrorMsg>
+                     <p>{passwordError}</p>
+                    </ErrorMsg>
                     <LoginButton>
-                        <button type="submit"> Login </button>
+                        <button type="submit" onClick={login}> Login </button>
                     </LoginButton>
                     <ForgotPassword>
                         <Link class="link" to="/">Forgot Password?</Link>
@@ -99,7 +102,9 @@ const UserID = styled.div`
     display: flex;
     justify-content: center;
     font-family: "Segoe UI"
+
 `
+
 const Password = styled.div`
     margin: 75px 0 0 0;
     display: flex;
@@ -138,3 +143,4 @@ const ForgotPassword = styled.div`
         margin-top: 15px;
     }    
 `
+
