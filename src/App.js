@@ -1,14 +1,12 @@
 //do imports of packages here
 import React, {useState, useEffect} from 'react';
-import {createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signOut} from "firebase/auth"
+import {createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signOut, GoogleAuthProvider,signInWithPopup} from "firebase/auth"
 import {auth} from "./components/fire"
 //styled-components allow us to create custom tags and style them within the js file
 import styled from 'styled-components' // do npm i styled-components to get this package
 // react-router-dom used for routing
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';//do npm install react-router-dom to get this package
 //firebase
-import fire from './components/fire'; 
-
 
 
 // do elements(components) imports here
@@ -23,8 +21,8 @@ function App() {
   const [registerPassword, setRegisterPassword ] = useState("")
   const [loginEmail, setLoginEmail ] = useState("")
   const [loginPassword, setLoginPassword ] = useState("")
-  const [emailError, setemailError ] = useState("")
-  const [passwordError, setpasswordError ] = useState("")
+ // const [emailError, setemailError ] = useState("")
+ // const [passwordError, setpasswordError ] = useState("")
 
   const [user, setUser] = useState({})
 
@@ -53,6 +51,16 @@ function App() {
     
     await signOut(auth);
   }
+
+ /* const signInWithGoogle = () => {
+    signInWithPopup(auth, provider)
+      .then((result) => {
+        console.log(result)
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }; */
  
 
   return (
