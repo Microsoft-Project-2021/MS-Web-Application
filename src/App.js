@@ -10,6 +10,7 @@ import firebase from "./firebase";
 // do elements(components) imports here
 import Home from './components/Home';
 import Login from './components/Login';
+import UI from './components/ChatWithDoctor';
 
 
 
@@ -21,6 +22,7 @@ function App() {
           {/* in the new react router dom, you need to use the element={<component_name/>} */}
           <Route path="/" element={<Home/>} />
           <Route path="/login" element={<Login/>} />
+          <Route path="/chat" element={<UI/>} />
         </Routes>
       </Router>
     </Container>       
