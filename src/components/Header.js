@@ -1,9 +1,9 @@
 import React from 'react'
-import Dailyframe from '@daily-co/daily-js'
+// import Dailyframe from '@daily-co/daily-js'
 
 function Header() {
 
-    let callFrame = Dailyframe.wrap(MY_IFRAME)
+    // let callFrame = Dailyframe.wrap(MY_IFRAME)
 
     return (
         <div>
