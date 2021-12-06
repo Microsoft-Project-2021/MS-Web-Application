@@ -1,45 +1,35 @@
-import React from 'react';
 import styled from 'styled-components'
 import {Link, useNavigate} from 'react-router-dom'//useNavigate helps in navigating to another url/page
 
-function Login(props) {
+function PasswordReset() {
 
-    const {loginEmail,setLoginEmail,loginPassword, setLoginPassword, login}= props;
+const navigate = useNavigate()
 
-    const navigate = useNavigate()
+const passwordResetFunction = (e) => {
+    e.preventDefault();
 
-    const loginFunction = (e) => {
-        e.preventDefault();
+    console.log("Pasword Reset Submit button pressed")
 
-        console.log("Login button pressed")
-
-        navigate('/')
-    }
+    navigate('/ChangePassword')
+}
 
     return (
         <Container>
             {/* this is how you use images that are in the public folder */}
             {/* <img src="images/MS_login_UI.jpeg" alt="" /> */}
             <LoginContainer>
-                <h1>Log In</h1>
-                <form onSubmit={loginFunction}>
+                <h1>Reset Password</h1>
+                <form onSubmit={passwordResetFunction}>
                     <UserID>
                         {/* <label>User ID:</label> */}
-                        <input type="text" autoFocus required value={loginEmail} onChange={(e)=> setLoginEmail(e.target.value)} placeholder="Username/ID"/>    
+                        <input placeholder="Username/ID"/>
                     </UserID>
-                    <Password>
-                        {/* <label>Password:</label> */}
-                        <input input type="password" required value={loginPassword} onChange={(e)=> setLoginPassword(e.target.value)} placeholder="Password"/>
-                    </Password>
-                    <ErrorMsg>
-                     <p>{passwordError}</p>
-                    </ErrorMsg>
                     <LoginButton>
-                        <button type="submit" onClick={login}> Login </button>
+                        <button type="submit"> Submit </button>
                     </LoginButton>
-                    <ForgotPassword>
-                        <Link class="link" to="/PasswordReset">Forgot Password?</Link>
-                    </ForgotPassword>
+                    <BackToLogin>
+                        <Link class="link" to="/Login">Back To Login</Link>
+                    </BackToLogin>
                 </form>
             </LoginContainer>
                 
@@ -47,7 +37,7 @@ function Login(props) {
     )
 }
 
-export default Login
+export default PasswordReset
 
 const Container = styled.div`
     /* border: 1px solid black; */
@@ -70,7 +60,7 @@ const LoginContainer = styled.div`
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;   
 
     h1{
-        font-family: Calibri;
+        font-family:Calibri;
         font-size: 60px;
         font-weight:500;
         text-align: center;
@@ -102,14 +92,6 @@ const UserID = styled.div`
     display: flex;
     justify-content: center;
     font-family: "Segoe UI"
-
-`
-
-const Password = styled.div`
-    margin: 75px 0 0 0;
-    display: flex;
-    justify-content: center;
-    font-family: "Segoe UI"
 `
 const LoginButton = styled.div`
     /* border: 1px solid black; */
@@ -131,7 +113,7 @@ const LoginButton = styled.div`
         cursor: pointer;
     }
 `
-const ForgotPassword = styled.div`
+const BackToLogin = styled.div`
     display: flex;
     justify-content: center;
 
@@ -143,4 +125,3 @@ const ForgotPassword = styled.div`
         margin-top: 15px;
     }    
 `
-

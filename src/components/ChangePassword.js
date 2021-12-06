@@ -1,45 +1,41 @@
-import React from 'react';
 import styled from 'styled-components'
 import {Link, useNavigate} from 'react-router-dom'//useNavigate helps in navigating to another url/page
 
-function Login(props) {
+function ChangePassword() {
 
-    const {loginEmail,setLoginEmail,loginPassword, setLoginPassword, login}= props;
+const navigate = useNavigate()
 
-    const navigate = useNavigate()
+const changePasswordFunction = (e) => {
+    e.preventDefault();
 
-    const loginFunction = (e) => {
-        e.preventDefault();
+    console.log("Reset button pressed")
 
-        console.log("Login button pressed")
-
-        navigate('/')
-    }
+    navigate('/')
+}
 
     return (
         <Container>
             {/* this is how you use images that are in the public folder */}
             {/* <img src="images/MS_login_UI.jpeg" alt="" /> */}
             <LoginContainer>
-                <h1>Log In</h1>
-                <form onSubmit={loginFunction}>
-                    <UserID>
-                        {/* <label>User ID:</label> */}
-                        <input type="text" autoFocus required value={loginEmail} onChange={(e)=> setLoginEmail(e.target.value)} placeholder="Username/ID"/>    
-                    </UserID>
-                    <Password>
-                        {/* <label>Password:</label> */}
-                        <input input type="password" required value={loginPassword} onChange={(e)=> setLoginPassword(e.target.value)} placeholder="Password"/>
-                    </Password>
-                    <ErrorMsg>
-                     <p>{passwordError}</p>
-                    </ErrorMsg>
-                    <LoginButton>
-                        <button type="submit" onClick={login}> Login </button>
-                    </LoginButton>
-                    <ForgotPassword>
-                        <Link class="link" to="/PasswordReset">Forgot Password?</Link>
-                    </ForgotPassword>
+                <h1>Reset Password</h1>
+                <form onSubmit={changePasswordFunction}>
+                    <PreviousPassword>
+                        {/* <label>Previous Password:</label> */}
+                        <input placeholder="Enter Previous Password"/>
+                    </PreviousPassword>
+                    <NewPassword>
+                        {/* <label>New Password:</label> */}
+                        <input placeholder="Enter New Password"/>
+                    </NewPassword>
+                    <ConfirmPassword>
+                        {/* <label>Confirm Password:</label> */}
+                        <input placeholder="Confirm Password"/>
+                    </ConfirmPassword>
+                    <ResetButton>
+                        <button type="submit"> Reset </button>
+                    </ResetButton>
+                    
                 </form>
             </LoginContainer>
                 
@@ -47,7 +43,7 @@ function Login(props) {
     )
 }
 
-export default Login
+export default ChangePassword
 
 const Container = styled.div`
     /* border: 1px solid black; */
@@ -70,7 +66,7 @@ const LoginContainer = styled.div`
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;   
 
     h1{
-        font-family: Calibri;
+        font-family:Calibri;
         font-size: 60px;
         font-weight:500;
         text-align: center;
@@ -97,23 +93,50 @@ const LoginContainer = styled.div`
         }
     }
 `
-const UserID = styled.div`
+const PreviousPassword = styled.div`
     /* border: 1px solid black;  */
     display: flex;
-    justify-content: center;
-    font-family: "Segoe UI"
+    font-family: "Segoe UI";
 
+    input::-webkit-input-placeholder {
+        text-align: center;
+    }
+      
+    input:-moz-placeholder {
+        text-align: center;
+    }
+    
 `
-
-const Password = styled.div`
-    margin: 75px 0 0 0;
+const NewPassword = styled.div`
+    margin: 50px 0 0 0;
     display: flex;
-    justify-content: center;
-    font-family: "Segoe UI"
+    font-family: "Segoe UI";
+
+    input::-webkit-input-placeholder {
+        text-align: center;
+    }
+      
+    input:-moz-placeholder {
+        text-align: center;
+    }
 `
-const LoginButton = styled.div`
+const ConfirmPassword = styled.div`
+    margin: 50px 0 0 0;
+    display: flex;
+    font-family: "Segoe UI";
+
+    input::-webkit-input-placeholder {
+        text-align: center;
+    }
+      
+    input:-moz-placeholder {
+        text-align: center;
+    }
+
+`
+const ResetButton = styled.div`
     /* border: 1px solid black; */
-    margin: 70px 0 0 0;
+    margin: 50px 0 0 0;
     display: flex;
     justify-content: center;
     width: 100%;
@@ -131,16 +154,3 @@ const LoginButton = styled.div`
         cursor: pointer;
     }
 `
-const ForgotPassword = styled.div`
-    display: flex;
-    justify-content: center;
-
-    .link{
-        text-decoration: none;
-        color: inherit;
-        font-family: "Segoe UI";
-        font-size: 15px;
-        margin-top: 15px;
-    }    
-`
-

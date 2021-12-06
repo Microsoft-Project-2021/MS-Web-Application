@@ -13,6 +13,8 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';//do n
 import Home from './components/Home';
 import Login from './components/Login';
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from '@firebase/auth';
+import PasswordReset from './components/PasswordReset';
+import ChangePassword from './components/ChangePassword';
 
 
 
@@ -72,6 +74,11 @@ function App() {
           <Route path="/login" element={<Login loginEmail={loginEmail} setLoginEmail={setLoginEmail} 
             loginPassword={loginPassword} setLoginPassword={setLoginPassword} login={login}
           />} />
+
+          <Route path="/login" element={<Login/>} />
+          <Route path="/passwordreset" element={<PasswordReset/>} />
+          <Route path="/changepassword" element={<ChangePassword/>} />
+
         </Routes>
       </Router>
     </Container>       
