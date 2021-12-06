@@ -1,17 +1,20 @@
+import React from 'react';
 import styled from 'styled-components'
 import {Link, useNavigate} from 'react-router-dom'//useNavigate helps in navigating to another url/page
 
-function Login() {
+function Login(props) {
 
-const navigate = useNavigate()
+    const {loginEmail,setLoginEmail,loginPassword, setLoginPassword, login}= props;
 
-const loginFunction = (e) => {
-    e.preventDefault();
+    const navigate = useNavigate()
 
-    console.log("Login button pressed")
+    const loginFunction = (e) => {
+        e.preventDefault();
 
-    navigate('/')
-}
+        console.log("Login button pressed")
+
+        navigate('/')
+    }
 
     return (
         <Container>
@@ -22,14 +25,17 @@ const loginFunction = (e) => {
                 <form onSubmit={loginFunction}>
                     <UserID>
                         {/* <label>User ID:</label> */}
-                        <input placeholder="Username/ID"/>
+                        <input type="text" autoFocus required value={loginEmail} onChange={(e)=> setLoginEmail(e.target.value)} placeholder="Username/ID"/>    
                     </UserID>
                     <Password>
                         {/* <label>Password:</label> */}
-                        <input placeholder="Password"/>
+                        <input input type="password" required value={loginPassword} onChange={(e)=> setLoginPassword(e.target.value)} placeholder="Password"/>
                     </Password>
+                    <ErrorMsg>
+                     <p>{passwordError}</p>
+                    </ErrorMsg>
                     <LoginButton>
-                        <button type="submit"> Login </button>
+                        <button type="submit" onClick={login}> Login </button>
                     </LoginButton>
                     <ForgotPassword>
                         <Link class="link" to="/PasswordReset">Forgot Password?</Link>
@@ -96,7 +102,9 @@ const UserID = styled.div`
     display: flex;
     justify-content: center;
     font-family: "Segoe UI"
+
 `
+
 const Password = styled.div`
     margin: 75px 0 0 0;
     display: flex;
@@ -135,3 +143,4 @@ const ForgotPassword = styled.div`
         margin-top: 15px;
     }    
 `
+
