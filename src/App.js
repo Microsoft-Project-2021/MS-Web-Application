@@ -1,7 +1,7 @@
 //do imports of packages here
 import React, {useState, useEffect} from 'react';
+import {auth} from "./firebase"
 import {createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signOut, GoogleAuthProvider,signInWithPopup} from "firebase/auth"
-import {auth} from "./components/fire"
 //styled-components allow us to create custom tags and style them within the js file
 import styled from 'styled-components' // do npm i styled-components to get this package
 // react-router-dom used for routing
@@ -12,7 +12,6 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';//do n
 // do elements(components) imports here
 import Home from './components/Home';
 import Login from './components/Login';
-import { createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from '@firebase/auth';
 import PasswordReset from './components/PasswordReset';
 import ChangePassword from './components/ChangePassword';
 

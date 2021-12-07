@@ -31,9 +31,9 @@ function Login(props) {
                         {/* <label>Password:</label> */}
                         <input input type="password" required value={loginPassword} onChange={(e)=> setLoginPassword(e.target.value)} placeholder="Password"/>
                     </Password>
-                    <ErrorMsg>
+                 {/*   <ErrorMsg>
                      <p>{passwordError}</p>
-                    </ErrorMsg>
+                 </ErrorMsg>*/ }
                     <LoginButton>
                         <button type="submit" onClick={login}> Login </button>
                     </LoginButton>
