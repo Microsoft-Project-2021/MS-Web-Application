@@ -22,9 +22,14 @@ const ContextProvider = ({ children }) => {
   useEffect(() => {
     navigator.mediaDevices.getUserMedia({ video: true, audio: true })
       .then((currentStream) => {
+        try{//added a try catch block, to log any errors          
         setStream(currentStream);
 
         myVideo.current.srcObject = currentStream;
+        }
+        catch(e){
+          console.log(e.message)
+        }
       });
 
     socket.on('me', (id) => setMe(id));
