@@ -1,18 +1,10 @@
 import styled from  'styled-components'
 import {Link, Navigate} from 'react-router-dom'
 import React from 'react'
-<<<<<<< HEAD:src/components/Header.js
 import {Helmet} from 'react-helmet'
 
 function Header() {
 
-=======
-// import Dailyframe from '@daily-co/daily-js'
-
-function Header() {
-
-    // let callFrame = Dailyframe.wrap(MY_IFRAME)
->>>>>>> dev-kassam:client/src/components/Header.js
 
     return (
 

@@ -24,19 +24,12 @@ function Login(props) {
                 <h1>Log In</h1>
                 <form onSubmit={loginFunction}>
                     <UserID>
-<<<<<<< HEAD:src/components/Login.js
                         {/* <label>User ID:</label> */}
                         <input type="text" autoFocus required value={loginEmail} onChange={(e)=> setLoginEmail(e.target.value)} placeholder="Username/ID"/>    
                     </UserID>
                     <Password>
                         {/* <label>Password:</label> */}
                         <input input type="password" required value={loginPassword} onChange={(e)=> setLoginPassword(e.target.value)} placeholder="Password"/>
-=======
-                        <input placeholder="Username/ID"/>
-                    </UserID>
-                    <Password>
-                        <input placeholder="Password"/>
->>>>>>> dev-kassam:client/src/components/Login.js
                     </Password>
                  {/*   <ErrorMsg>
                      <p>{passwordError}</p>
