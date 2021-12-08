@@ -21,11 +21,9 @@ const loginFunction = (e) => {
                 <h1>Log In</h1>
                 <form onSubmit={loginFunction}>
                     <UserID>
-                        {/* <label>User ID:</label> */}
                         <input placeholder="Username/ID"/>
                     </UserID>
                     <Password>
-                        {/* <label>Password:</label> */}
                         <input placeholder="Password"/>
                     </Password>
                     <LoginButton>
@@ -50,13 +48,12 @@ const Container = styled.div`
     padding: 10px;
     background-image: url("images/bg_img.svg");
     background-repeat: no-repeat;
-    background-size: cover;    
+    background-size: cover;     
 `
 const LoginContainer = styled.div`
     /* border: 1px solid black; */
     background-color: white;
     height: 600px;
-    /* width: 400px; */
     padding: 20px 0 0 0;
     border-radius: 15px;
     margin: 50px 20px 0 70%;
@@ -68,19 +65,17 @@ const LoginContainer = styled.div`
         font-size: 60px;
         font-weight:500;
         text-align: center;
-        /* margin-top: 50px; */
-        /* border: 1px solid black; */
+        font-size: 44px;
     }
+        /* margin-top: 50px; */
 
     form{
-        /* border: 1px solid black; */
         padding: 30px 25px;
         margin: 70px 20px;
         height: 400px;
         display: flex;
         flex-wrap: wrap;
         flex-direction: column;
-        /* justify-content: center; */
 
         input{
             width: 100%;

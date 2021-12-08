@@ -4,8 +4,6 @@ import styled from 'styled-components' // do npm i styled-components to get this
 // react-router-dom used for routing
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';//do npm install react-router-dom to get this package 
 
-
-
 // do elements(components) imports here
 import Home from './components/Home';
 import Login from './components/Login';
