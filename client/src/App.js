@@ -5,17 +5,14 @@ import {createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateC
 //styled-components allow us to create custom tags and style them within the js file
 import styled from 'styled-components' // do npm i styled-components to get this package
 // react-router-dom used for routing
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';//do npm install react-router-dom to get this package
-//firebase
-
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';//do npm install react-router-dom to get this package 
 
 // do elements(components) imports here
 import Home from './components/Home';
 import Login from './components/Login';
 import PasswordReset from './components/PasswordReset';
 import ChangePassword from './components/ChangePassword';
-
-
+import Video from './Video';
 
 function App() {
   const [registerEmail, setRegisterEmail ] = useState("")
@@ -77,7 +74,7 @@ function App() {
           <Route path="/login" element={<Login/>} />
           <Route path="/passwordreset" element={<PasswordReset/>} />
           <Route path="/changepassword" element={<ChangePassword/>} />
-
+          <Route path="/video" element={<Video/>} />
         </Routes>
       </Router>
     </Container>       
