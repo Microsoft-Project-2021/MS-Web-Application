@@ -9,8 +9,7 @@ import Home from './components/Home';
 import Login from './components/Login';
 import PasswordReset from './components/PasswordReset';
 import ChangePassword from './components/ChangePassword';
-
-
+import Video from './Video';
 
 function App() {
   return (
@@ -22,6 +21,7 @@ function App() {
           <Route path="/login" element={<Login/>} />
           <Route path="/passwordreset" element={<PasswordReset/>} />
           <Route path="/changepassword" element={<ChangePassword/>} />
+          <Route path="/video" element={<Video/>} />
         </Routes>
       </Router>
     </Container>       
