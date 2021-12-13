@@ -1,7 +1,5 @@
 //do imports of packages here
-import React, {useState, useEffect} from 'react';
-import {auth} from "./firebase"
-import {createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signOut, GoogleAuthProvider,signInWithPopup} from "firebase/auth"
+import React from 'react';
 //styled-components allow us to create custom tags and style them within the js file
 import styled from 'styled-components' // do npm i styled-components to get this package
 // react-router-dom used for routing
@@ -13,71 +11,34 @@ import Login from './components/Login';
 import PasswordReset from './components/PasswordReset';
 import ChangePassword from './components/ChangePassword';
 import Video from './Video';
+import Register from './components/Register';
+import {AuthProvider} from './AuthContext'
+import Dashboard from './components/Dashboard';
+import PrivateRoute from './components/PrivateRoute';
 
 function App() {
-  const [registerEmail, setRegisterEmail ] = useState("")
-  const [registerPassword, setRegisterPassword ] = useState("")
-  const [loginEmail, setLoginEmail ] = useState("")
-  const [loginPassword, setLoginPassword ] = useState("")
- // const [emailError, setemailError ] = useState("")
- // const [passwordError, setpasswordError ] = useState("")
-
-  const [user, setUser] = useState({})
-
-  onAuthStateChanged(auth, (currentUser) => {
-    setUser(currentUser);
-  })
-
-  const register = async () => {
-    try {
-      const user = await createUserWithEmailAndPassword(auth,registerEmail,registerPassword)
-    } catch (error){
-      console.log(error.message);
-    }
-  
-  }
-
-  const login = async () => {
-    try {
-      const user = await signInWithEmailAndPassword(auth, loginEmail,loginPassword)
-    } catch (error){
-      console.log(error.message);
-    }
-  }
-
-  const logout = async () => {
-    
-    await signOut(auth);
-  }
-
- /* const signInWithGoogle = () => {
-    signInWithPopup(auth, provider)
-      .then((result) => {
-        console.log(result)
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  }; */
  
-
   return (
+    
     <Container>
       <Router>
+      <AuthProvider>
         <Routes>
           {/* in the new react router dom, you need to use the element={<component_name/>} */}
           <Route path="/" element={<Home/>} />
-          <Route path="/login" element={<Login loginEmail={loginEmail} setLoginEmail={setLoginEmail} 
-            loginPassword={loginPassword} setLoginPassword={setLoginPassword} login={login}
-          />} />
-
           <Route path="/login" element={<Login/>} />
           <Route path="/passwordreset" element={<PasswordReset/>} />
           <Route path="/changepassword" element={<ChangePassword/>} />
+          <Route path="/register" element={<Register/>} />
+          <Route element={<PrivateRoute/>}>
+          <Route path="/dashboard" element={<Dashboard/>} />
           <Route path="/video" element={<Video/>} />
+          </Route>
         </Routes>
+      </AuthProvider>   
       </Router>
-    </Container>       
+    </Container>
+        
   );
 }
 

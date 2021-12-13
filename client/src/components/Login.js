@@ -1,19 +1,31 @@
-import React from 'react';
+import React, {useRef,useState} from 'react';
+import {Alert} from "react-bootstrap"
 import styled from 'styled-components'
-import {Link, useNavigate} from 'react-router-dom'//useNavigate helps in navigating to another url/page
-
-function Login(props) {
-
-    const {loginEmail,setLoginEmail,loginPassword, setLoginPassword, login}= props;
+import {Link, useNavigate, } from 'react-router-dom'//useNavigate helps in navigating to another url/page
+import { useAuth } from '../AuthContext'
+function Login() {
 
     const navigate = useNavigate()
 
-    const loginFunction = (e) => {
-        e.preventDefault();
+    const emailRef = useRef()
+    const passwordRef = useRef()
+    const {login} = useAuth()
+    const [error, setError] = useState('')
+    const [loading, setLoading] = useState(false)
 
-        console.log("Login button pressed")
+    async function handleLogIn(e){
+        e.preventDefault()
 
-        navigate('/')
+        try{
+            setError('')
+            setLoading(true)
+          await  login(emailRef.current.value,passwordRef.current.value)
+          navigate('/Dashboard')
+        } catch{
+            setError('Failed to sign in')
+        }
+
+       setLoading(false)
     }
 
     return (
@@ -22,27 +34,27 @@ function Login(props) {
             {/* <img src="images/MS_login_UI.jpeg" alt="" /> */}
             <LoginContainer>
                 <h1>Log In</h1>
-                <form onSubmit={loginFunction}>
+                {error && <Alert variant="danger">{error}</Alert>}
+                <form onSubmit={handleLogIn}>
                     <UserID>
                         {/* <label>User ID:</label> */}
-                        <input type="text" autoFocus required value={loginEmail} onChange={(e)=> setLoginEmail(e.target.value)} placeholder="Username/ID"/>    
+                        <input type="text" autoFocus required ref={emailRef}  placeholder="Username/ID"/>    
                     </UserID>
                     <Password>
                         {/* <label>Password:</label> */}
-                        <input input type="password" required value={loginPassword} onChange={(e)=> setLoginPassword(e.target.value)} placeholder="Password"/>
+                        <input input type="password" required ref={passwordRef}  placeholder="Password"/>
                     </Password>
-                 {/*   <ErrorMsg>
-                     <p>{passwordError}</p>
-                 </ErrorMsg>*/ }
                     <LoginButton>
-                        <button type="submit" onClick={login}> Login </button>
+                        <button type="submit"  disabled={loading} > Login </button>
                     </LoginButton>
                     <ForgotPassword>
                         <Link class="link" to="/PasswordReset">Forgot Password?</Link>
                     </ForgotPassword>
+                    <ForgotPassword>
+                    Need an account? <Link to="/Register">Register</Link>
+                    </ForgotPassword>
                 </form>
             </LoginContainer>
-                
         </Container>
     )
 }
