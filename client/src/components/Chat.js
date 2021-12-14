@@ -1,10 +1,10 @@
-import React, {Component, useRef, useState} from 'react';
+import React, {Component, useEffect, useRef, useState} from 'react';
 import styled from 'styled-components';
 import {Link, useNavigate, } from 'react-router-dom'//useNavigate helps in navigating to another url/page
 import {db, fire} from "../firebase";
 import Header from "./Header2";
 import { auth2,db2 } from "../firebase";
-import {  ref, set } from "firebase/database";
+import {  ref, set ,push} from "firebase/database";
 
 export default class Chat extends Component {
     constructor(props) {
@@ -51,14 +51,19 @@ export default class Chat extends Component {
         event.preventDefault();
         this.setState({ writeError: null });
         const chatArea = this.myRef.current;
+        const uid = this.state.user.uid;
+        const content = this.state.content
+        const timestamp = Date.now();
+
         try {
-            set(ref(db, 'chats' ), {
+            push(ref(db, 'chats' ), {
                 content: this.state.content,
                 timestamp: Date.now(),
                 uid: this.state.user.uid
             });
             this.setState({ content: '' });
             chatArea.scrollBy(0, chatArea.scrollHeight);
+
         } catch (error) {
             this.setState({ writeError: error.message });
             console.log("notSuccesful")

@@ -20,9 +20,10 @@ function Login() {
             setError('')
             setLoading(true)
           await  login(emailRef.current.value,passwordRef.current.value)
-          navigate('/Dashboard')
+          navigate('/Chat')
         } catch{
             setError('Failed to sign in')
+            console.log("unsuccessful")
         }
 
        setLoading(false)

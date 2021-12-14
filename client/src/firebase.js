@@ -18,8 +18,8 @@ const firebaseConfig = {
 };
 
 // Initialize Firebase
-const app = initializeApp(firebaseConfig);
-const app2 = firebase.initializeApp(firebaseConfig);
+export const app = initializeApp(firebaseConfig);
+export const app2 = firebase.initializeApp(firebaseConfig);
 
 export const auth = getAuth(app);
 export const fire = getFirestore(app);
