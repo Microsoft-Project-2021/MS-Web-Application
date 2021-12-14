@@ -55,11 +55,14 @@ export default class Chat extends Component {
         const content = this.state.content
         const timestamp = Date.now();
 
+
         try {
             push(ref(db, 'chats' ), {
                 content: this.state.content,
                 timestamp: Date.now(),
-                uid: this.state.user.uid
+                uid: this.state.user.uid,
+
+
             });
             this.setState({ content: '' });
             chatArea.scrollBy(0, chatArea.scrollHeight);

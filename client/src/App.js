@@ -17,7 +17,7 @@ import Dashboard from './components/Dashboard';
 import PrivateRoute from './components/PrivateRoute';
 import Chat from './components/Chat';
 import SelectChat from './components/selectChat';
-import Wait from './components/Wait';
+
 import {Switch} from "@material-ui/core";
 
 function App() {
@@ -38,10 +38,11 @@ function App() {
           <Route path="/register" element={<Register/>} />
           <Route element={<PrivateRoute/>}>
           <Route path="/dashboard" element={<Dashboard/>} />
-              <Route path="/chat" element={<Chat/>} />
+              <Route path="/chat:email" element={<Chat/>} />
               <Route path="/selectchat" element={<SelectChat/>} />
+
           <Route path="/video" element={<Video/>} />
-              <Route path="/wait" element={<Wait/>} />
+
           </Route>
         </Routes>
       </AuthProvider>   
