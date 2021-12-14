@@ -4,6 +4,7 @@ import { CopyToClipboard } from 'react-copy-to-clipboard';
 import { Assignment, Phone, PhoneDisabled } from '@material-ui/icons';
 import { makeStyles } from '@material-ui/core/styles';
 
+import { useAuth } from "../AuthContext"
 import { SocketContext } from '../Context';
 
 const useStyles = makeStyles((theme) => ({
@@ -41,7 +42,13 @@ const Sidebar = ({ children }) => {
   const { me, callAccepted, name, setName, callEnded, leaveCall, callUser } = useContext(SocketContext);
   const [idToCall, setIdToCall] = useState('');
   const classes = useStyles();
-
+  
+  const { currentUser } = useAuth()
+  
+  // me = currentUser.uid
+const uid = currentUser.uid
+  console.log("from the context api " + me)
+  console.log("current user uid "  + uid)
   return (
     <Container className={classes.container}>
       <Paper elevation={10} className={classes.paper}>
@@ -50,7 +57,7 @@ const Sidebar = ({ children }) => {
             <Grid item xs={12} md={6} className={classes.padding}>
               <Typography gutterBottom variant="h6">Account Info</Typography>
               <TextField label="Name" value={name} onChange={(e) => setName(e.target.value)} fullWidth />
-              <CopyToClipboard text={me} className={classes.margin}>
+              <CopyToClipboard text={uid} className={classes.margin}>
                 <Button variant="contained" color="primary" fullWidth startIcon={<Assignment fontSize="large" />}>
                   Copy Your ID
                 </Button>

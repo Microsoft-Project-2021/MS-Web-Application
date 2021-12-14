@@ -19,6 +19,8 @@ export default function Dashboard() {
     }
   }
 
+  console.log(JSON.stringify(currentUser))
+
   return (
     <>
       <Card>

@@ -2,6 +2,7 @@ import React from 'react';
 import { Typography, AppBar } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 
+// import { useAuth } from "../AuthContext"
 import VideoPlayer from './components/VideoPlayer';
 import Sidebar from './components/Sidebar';
 import Notifications from './components/Notifications';
@@ -35,6 +36,7 @@ const useStyles = makeStyles((theme) => ({
 const Video = () => {
   const classes = useStyles();
 
+  // const { currentUser } = useAuth()
   return (
     <div className={classes.wrapper}>
       <AppBar className={classes.appBar} position="static" color="inherit">
