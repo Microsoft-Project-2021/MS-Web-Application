@@ -1,9 +1,12 @@
 import styled from  'styled-components'
 import {Link, Navigate} from 'react-router-dom'
-import React from 'react'
+import React, { useState } from 'react'
 import {Helmet} from 'react-helmet'
 
 function Header() {
+
+    const [openSignUpModal, setOpenSignupModal] = useState(false)
+    const [openLoginModal, setOpenLoginModal] = useState(false)
 
 
     return (
@@ -24,9 +27,11 @@ function Header() {
             </NavBar>
 
             <SignIn>
-                <button class="auth">Sign In</button>
+                <button class="auth" onClick={() => setOpenSignupModal(true)}>Signup</button>
+                <button class="auth" onClick={() => setOpenLoginModal(true)}>Login</button>
             </SignIn>
-        
+            {openSignUpModal && <SignUpModal closeSignUpModal={setOpenSignupModal}/>}
+            {openLoginModal && <LogInModal closeLogInModal={setOpenLoginModal} />}
         </Container>
     )
 }
