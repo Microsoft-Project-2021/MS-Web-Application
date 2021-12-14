@@ -2,6 +2,9 @@ import React, {useRef, useState} from 'react'
 import {Form, Button, Card, Alert} from "react-bootstrap"
 import {Link, useNavigate, } from 'react-router-dom'
 import { useAuth } from '../AuthContext'
+import {ref, set} from "firebase/database";
+import {db} from "../firebase";
+
 
 export default function Register() {
 
@@ -25,6 +28,11 @@ export default function Register() {
             setError('')
             setLoading(true)
           await  register(emailRef.current.value,passwordRef.current.value)
+            set(ref(db, 'users' ), {
+                email: emailRef.current.value,
+                password: passwordRef.current.value,
+
+            });
           navigate('/Dashboard')
         } catch{
             setError('Failed to create account')

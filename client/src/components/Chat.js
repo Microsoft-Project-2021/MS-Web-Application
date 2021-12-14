@@ -4,6 +4,7 @@ import {Link, useNavigate, } from 'react-router-dom'//useNavigate helps in navig
 import {db, fire} from "../firebase";
 import Header from "./Header2";
 import { auth2,db2 } from "../firebase";
+import {  ref, set } from "firebase/database";
 
 export default class Chat extends Component {
     constructor(props) {
@@ -51,8 +52,7 @@ export default class Chat extends Component {
         this.setState({ writeError: null });
         const chatArea = this.myRef.current;
         try {
-
-            await db.ref("chats").push({
+            set(ref(db, 'chats' ), {
                 content: this.state.content,
                 timestamp: Date.now(),
                 uid: this.state.user.uid
