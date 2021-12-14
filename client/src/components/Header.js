@@ -30,8 +30,8 @@ function Header() {
                 <button class="auth" onClick={() => setOpenSignupModal(true)}>Signup</button>
                 <button class="auth" onClick={() => setOpenLoginModal(true)}>Login</button>
             </SignIn>
-            {openSignUpModal && <SignUpModal closeSignUpModal={setOpenSignupModal}/>}
-            {openLoginModal && <LogInModal closeLogInModal={setOpenLoginModal} />}
+            {/* {openSignUpModal && <SignUpModal closeSignUpModal={setOpenSignupModal}/>}
+            {openLoginModal && <LogInModal closeLogInModal={setOpenLoginModal} />} */}
         </Container>
     )
 }
