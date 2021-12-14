@@ -2,9 +2,14 @@ import styled from  'styled-components'
 import {Link, Navigate} from 'react-router-dom'
 import React from 'react'
 import {Helmet} from 'react-helmet'
+import {useState} from 'react';
+import LogInModal from './PatientLogin';
+import SignUpModal from './PatientSignup';
 
 function Header() {
-
+    
+    const [openSignUpModal, setOpenSignupModal] = useState(false)
+    const [openLoginModal, setOpenLoginModal] = useState(false)
 
     return (
 
@@ -24,9 +29,24 @@ function Header() {
             </NavBar>
 
             <SignIn>
-                <button class="auth">Sign In</button>
+                <button 
+                    class="auth" 
+                    onClick={
+                        () => {
+                            setOpenSignupModal(true);
+                            }
+                        }>Signup</button>
+                        <button 
+                    class="auth" 
+                    onClick={
+                        () => {
+                            setOpenLoginModal(true);
+                            }
+                        }>Login</button>
+            
             </SignIn>
-        
+            {openLoginModal && <LogInModal closeLogInModal={setOpenLoginModal} />}
+            {openSignUpModal && <SignUpModal closeSignUpModal={setOpenSignupModal}/>}
         </Container>
     )
 }
@@ -69,6 +89,8 @@ const NavBar = styled.div`
 const SignIn = styled.div`
     display: inline-flex;
     float: right;
+    height: 100px;
+    margin: auto 20px;
 
     .auth{
         background: white;
@@ -76,12 +98,13 @@ const SignIn = styled.div`
         font-family: "Segoe UI";
         font-size: 20px;
         height: 100px;
-        margin-right: 20px;
+        margin: auto 0px auto 20px;
         width: 100px;
     }
 
-    .auth:hover{
+    .auth:hover, .auth:active{
         background: #1e90ff;
         color: white;
+        border: none;
     }
 `

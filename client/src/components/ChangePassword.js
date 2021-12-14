@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 import {Link, useNavigate} from 'react-router-dom'//useNavigate helps in navigating to another url/page
 
+
 function ChangePassword() {
 
 const navigate = useNavigate()

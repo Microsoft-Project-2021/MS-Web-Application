@@ -2,19 +2,30 @@
   "name": "ms2021",
   "version": "0.1.0",
   "private": true,
+<<<<<<< Updated upstream:client/package.json
 	"proxy": "https://omnidocms.herokuapp.com/",
+=======
+<<<<<<< Updated upstream:package.json
+=======
+  "proxy": "https://omnidocms.herokuapp.com/",
+>>>>>>> Stashed changes:client/package.json
+>>>>>>> Stashed changes:package.json
   "dependencies": {
     "@material-ui/core": "^4.12.3",
     "@material-ui/icons": "^4.11.2",
     "@testing-library/jest-dom": "^5.15.0",
     "@testing-library/react": "^11.2.7",
     "@testing-library/user-event": "^12.8.3",
-    "firebase": "^9.5.0",
+    "firebase": "^9.6.0",
+    "joi": "^17.5.0",
     "react": "^17.0.2",
+    "react-copy-to-clipboard": "^5.0.3",
     "react-dom": "^17.0.2",
     "react-helmet": "^6.1.0",
     "react-router-dom": "^6.0.2",
     "react-scripts": "4.0.3",
+    "simple-peer": "^9.10.0",
+    "socket.io-client": "^4.0.0",
     "styled-components": "^5.3.3",
 		"react-copy-to-clipboard": "^5.0.3",
 		"simple-peer": "^9.10.0",

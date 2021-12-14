@@ -35,7 +35,15 @@ function Login(props) {
                      <p>{passwordError}</p>
                  </ErrorMsg>*/ }
                     <LoginButton>
+<<<<<<< Updated upstream:client/src/components/Login.js
                         <button type="submit" onClick={login}> Login </button>
+=======
+<<<<<<< Updated upstream:src/components/Login.js
+                        <button type="submit"> Login </button>
+=======
+                        <button type="submit" onClick={loginFunction}> Login </button>
+>>>>>>> Stashed changes:client/src/components/Login.js
+>>>>>>> Stashed changes:src/components/Login.js
                     </LoginButton>
                     <ForgotPassword>
                         <Link class="link" to="/PasswordReset">Forgot Password?</Link>
